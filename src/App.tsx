@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
+import Form from './components/Form'
+import Todo from './models/Todo'
 
 function App() {
-  return <div className='App'></div>
+  const [inputText, setInputText] = useState('')
+  const [todos, setTodos] = useState<Todo[]>([])
+  return (
+    <div className='App'>
+      <header>
+        <h1>Todo List</h1>
+      </header>
+      <Form
+        todos={todos}
+        setTodos={setTodos}
+        inputText={inputText}
+        setInputText={setInputText}
+      />
+    </div>
+  )
 }
 
 export default App
