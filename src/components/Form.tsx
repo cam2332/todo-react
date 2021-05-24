@@ -29,15 +29,17 @@ const Form = (props: IFormProps) => {
 
   return (
     <form>
-      <input
-        value={props.inputText}
-        onChange={inputTextHandler}
-        type='text'
-        className='todo-input'
-      />
-      <button onClick={submitTodoHandler} className='todo-button' type='submit'>
-        <i className='fas fa-plus-square'></i>
-      </button>
+      <div className='input-container'>
+        <input
+          value={props.inputText}
+          onChange={inputTextHandler}
+          type='text'
+          className='todo-input'
+        />
+        <button onClick={submitTodoHandler} type='submit'>
+          <i className='fas fa-plus-square'></i>
+        </button>
+      </div>
       <div className='select'>
         <select onChange={statusHandler} name='todos' className='filter-todo'>
           <option value='all'>All</option>

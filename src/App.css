@@ -5,10 +5,20 @@
 }
 
 body {
+    background-attachment: fixed;
     background-image: var(--background-image);
     color: white;
     font-family: "Poppins", sans-serif;
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 671px) {
+    body {
+        display: inline-flex;
+    }
 }
 
 header {
@@ -17,10 +27,16 @@ header {
 
 header,
 form {
-    min-height: 20vh;
+    margin: 0.5rem;
+    min-height: 18vh;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.input-container {
+    display: flex;
 }
 
 form input,
@@ -36,7 +52,6 @@ form button {
     color: #c94f2d;
     background: var(--element-background);
     cursor: pointer;
-    transition: all 0.3s ease;
 }
 
 form button:hover {
@@ -46,13 +61,21 @@ form button:hover {
 
 .todo-container {
     display: flex;
+    flex: 1;
     justify-content: center;
     align-items: center;
 }
 
 .todo-list {
-    min-width: 30%;
+    max-width: 670px;
+    flex: 1;
     list-style: none;
+}
+
+@media only screen and (max-width: 671px) {
+    .todo-list {
+        max-width: 460px;
+    }
 }
 
 .todo {
@@ -63,7 +86,6 @@ form button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 1s ease;
 }
 
 .filter-todo {
@@ -72,6 +94,9 @@ form button:hover {
 
 .todo li {
     flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .trash-btn,
@@ -97,11 +122,6 @@ form button:hover {
     pointer-events: none;
 }
 
-.fall {
-    transform: translateY(10rem) rotateZ(20deg);
-    opacity: 0;
-}
-
 .completed {
     text-decoration: line-through;
     opacity: 0.5;
@@ -125,7 +145,7 @@ select {
 /* Custom Select */
 
 .select {
-    margin: 1rem;
+    margin: 0 0 0 1rem;
     position: relative;
     overflow: hidden;
 }
@@ -152,15 +172,8 @@ select {
     pointer-events: none;
 }
 
-
-/* Transition */
-
-
-/*
-  .select:hover::after {
-    transform: scale(1.5);
-  }
-  */    position: fixed;
+.theme-btn {
+    position: fixed;
     left: 0;
     background: transparent;
     color: white;
