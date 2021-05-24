@@ -5,13 +5,14 @@ import TodoItem from './TodoItem'
 interface ITodoListProps {
   todos: Todo[]
   setTodos: (todos: Todo[]) => void
+  filteredTodos: Todo[]
 }
 
 const TodoList = (props: ITodoListProps) => {
   return (
     <div className='todo-container'>
       <ul className='todo-list'>
-        {props.todos.map((todo: Todo) => (
+        {props.filteredTodos.map((todo: Todo) => (
           <TodoItem
             todos={props.todos}
             setTodos={props.setTodos}

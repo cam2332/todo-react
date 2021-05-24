@@ -6,6 +6,7 @@ interface IFormProps {
   setInputText: (value: string) => void
   todos: Todo[]
   setTodos: (todos: Todo[]) => void
+  setStatus: (status: string) => void
 }
 
 const Form = (props: IFormProps) => {
@@ -22,6 +23,10 @@ const Form = (props: IFormProps) => {
     props.setInputText('')
   }
 
+  const statusHandler = (event: SyntheticEvent) => {
+    props.setStatus((event.target as HTMLInputElement).value)
+  }
+
   return (
     <form>
       <input
@@ -34,7 +39,7 @@ const Form = (props: IFormProps) => {
         <i className='fas fa-plus-square'></i>
       </button>
       <div className='select'>
-        <select name='todos' className='filter-todo'>
+        <select onChange={statusHandler} name='todos' className='filter-todo'>
           <option value='all'>All</option>
           <option value='completed'>Completed</option>
           <option value='uncompleted'>Uncompleted</option>
