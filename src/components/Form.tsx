@@ -16,10 +16,11 @@ const Form = (props: IFormProps) => {
 
   const submitTodoHandler = (event: SyntheticEvent) => {
     event.preventDefault()
-    props.setTodos([
-      ...props.todos,
-      { text: props.inputText, completed: false, id: Math.random() * 1000 },
-    ])
+    props.inputText.length > 0 &&
+      props.setTodos([
+        ...props.todos,
+        { text: props.inputText, completed: false, id: Math.random() * 1000 },
+      ])
     props.setInputText('')
   }
 
